@@ -1,0 +1,26 @@
+.summary-box {
+    background: #f5f7fa;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 16px 24px;
+    font-size: 1.1rem;
+    color: #333;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin: 12px 0;
+    transition: box-shadow 0.2s;
+}
+
+.summary-box:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+}
+
+.summary-box-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: #1a202c;
+}
+
+.summary-box-content {
+    line-height: 1.6;
+}
