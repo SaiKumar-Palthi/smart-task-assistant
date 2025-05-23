@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|c:\\users\\rc12048\\documents\\per\\smart-task-assistant\\smart-task-assistant\\smarttaskassistant.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|c:\\users\\rc12048\\documents\\per\\smart-task-assistant\\smart-task-assistant\\smarttaskassistant.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|c:\\users\\rc12048\\documents\\per\\smart-task-assistant\\smart-task-assistant\\smarttaskassistant.api\\chatcompletionrequestmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|solutionrelative:chatcompletionrequestmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|c:\\users\\rc12048\\documents\\per\\smart-task-assistant\\smart-task-assistant\\smarttaskassistant.api\\smarttaskassistant.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|solutionrelative:smarttaskassistant.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|c:\\users\\rc12048\\documents\\per\\smart-task-assistant\\smart-task-assistant\\smarttaskassistant.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}|SmartTaskAssistant.Api.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ChatCompletionRequestMessage.cs",
+              "DocumentMoniker": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\ChatCompletionRequestMessage.cs",
+              "RelativeDocumentMoniker": "ChatCompletionRequestMessage.cs",
+              "ToolTip": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\ChatCompletionRequestMessage.cs",
+              "RelativeToolTip": "ChatCompletionRequestMessage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:58:00.427Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SmartTaskAssistant.Api.csproj",
+              "DocumentMoniker": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\SmartTaskAssistant.Api.csproj",
+              "RelativeDocumentMoniker": "SmartTaskAssistant.Api.csproj",
+              "ToolTip": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\SmartTaskAssistant.Api.csproj",
+              "RelativeToolTip": "SmartTaskAssistant.Api.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-22T13:39:42.84Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-22T13:39:36.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-22T13:39:29.774Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\rc12048\\Documents\\Per\\smart-task-assistant\\smart-task-assistant\\SmartTaskAssistant.Api\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAnwH0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-22T13:39:01.471Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

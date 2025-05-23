@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartTaskAssistant.Api", "SmartTaskAssistant.Api.csproj", "{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4327F356-FD6E-3E16-F538-DA09C9FBAAD6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6451B89-705B-485C-83D1-313A76C663BB}
+	EndGlobalSection
+EndGlobal
