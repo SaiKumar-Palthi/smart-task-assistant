@@ -80,12 +80,6 @@ npm start      # if using Create React App
 
 ---
 
-## 📸 Screenshot (Optional)
-
-![Smart Task Assistant Screenshot](public/screenshot.png)
-
----
-
 ## 🧑‍💻 Author
 
 Palthi Sai Kumar – Full-Stack Developer  
