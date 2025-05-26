@@ -4,12 +4,15 @@ import NaturalLanguageInput from '../NaturalLanguageInput/NaturalLanguageInput';
 import TaskList from '../Tasks/TaskList';
 import type { Task } from '../../interfaces/Task.interface';
 import { TaskService } from '../../services/TaskService';
+import {SummaryBoxService } from '../../services/SummaryBoxService';
 import AISummaryBox from '../SummaryBox/AISummaryBox';
+import './Dashboard.css';
+import type { AISummary } from '../../interfaces/AISummaryBox.interface';
 
 const Dashboard: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [loading, setLoading] = useState(true);
-  const [aiSummary, setAISummary] = useState<string>('');
+  const [aiSummary, setAISummary] = useState<AISummary>({ summary: '', title: '' });
   const [loadingSummary, setLoadingSummary] = useState(false);
 
   // Load tasks from backend
@@ -49,6 +52,7 @@ const Dashboard: React.FC = () => {
 
     try {
       const updated = await TaskService.updateTask(id, {
+        ...task,
         completed: !task.completed,
         status: !task.completed ? 'Completed' : 'Pending',
       });
@@ -66,25 +70,21 @@ const Dashboard: React.FC = () => {
       console.error('Failed to delete task:', error);
     }
   };
+
   const fetchAISummary = async () => {
+    setLoadingSummary(true);
     try {
-        setLoadingSummary(true);
-        const response = await fetch('https://localhost:7168/api/ai/summary', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ tasks }) // wrap inside { tasks }
-    });
-
-
-      if (!response.ok) throw new Error('Failed to fetch summary');
-
-      const result = await response.text(); // or .json() if your endpoint returns JSON
-      setAISummary(result);
+      const summaryResponse = await SummaryBoxService.fetchAISummary(tasks);
+      setAISummary({
+        summary: summaryResponse?.summary ?? '',
+        title: summaryResponse?.title ?? '',
+      });
     } catch (error) {
       console.error('Error fetching AI summary:', error);
-      setAISummary('Failed to generate summary.');
+      setAISummary({
+        summary: 'Failed to generate summary.',
+        title: '',
+      });
     } finally {
       setLoadingSummary(false);
     }
@@ -93,18 +93,25 @@ const Dashboard: React.FC = () => {
   if (loading) return <div>Loading...</div>;
 
   return (
-    <div className="dashboard">
+    <div className="dashboard dashboard-container">
       <h1>Smart Task Assistant</h1>
+
       <SummaryBox
         total={tasks.length}
         completed={tasks.filter((t) => t.completed).length}
         pending={tasks.filter((t) => !t.completed).length}
       />
-      <button onClick={fetchAISummary} disabled={loadingSummary}>
+
+      <button
+        className="dashboard-ai-summary-btn"
+        onClick={fetchAISummary}
+        disabled={loadingSummary}
+      >
         {loadingSummary ? 'Generating Summary...' : 'Generate AI Summary'}
       </button>
-      {aiSummary && <AISummaryBox summary={aiSummary} />}
-      
+
+      {aiSummary && <AISummaryBox aisummary={aiSummary} />}
+
       <NaturalLanguageInput onAddTask={addTask} />
       <TaskList tasks={tasks} onToggle={toggleTask} onDelete={deleteTask} />
     </div>

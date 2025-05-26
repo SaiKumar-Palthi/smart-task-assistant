@@ -38,4 +38,6 @@ obj/
 
 ## Ignore local settings
 *.vscode/
-
+*.dll
+*.pdb
+*.db

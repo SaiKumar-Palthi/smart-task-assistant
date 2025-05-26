@@ -5,6 +5,7 @@ using Microsoft.Extensions.Options;
 using OpenAI;
 using OpenAI.Chat;
 using OpenAI.Models;
+using System.Text.Json;
 
 
 
@@ -111,55 +112,118 @@ app.MapDelete("/api/tasks/{id}", async (AppDbContext db, Guid id) =>
     return Results.NoContent();
 });
 
-//app.MapGet("/api/tasks/summary", async (SmartTaskAssistantDbContext db) =>
-//{
-//    var tasks = await db.Tasks.ToListAsync();
-//    var total = tasks.Count;
-//    var completed = tasks.Count(t => t.Completed);
-//    var pending = total - completed;
+app.MapGet("/api/tasks/summary", async (AppDbContext db) =>
+{
+    var tasks = await db.Tasks.ToListAsync();
+    var total = tasks.Count;
+    var completed = tasks.Count(t => t.Completed);
+    var pending = total - completed;
 
-//    return Results.Ok(new { total, completed, pending });
+    return Results.Ok(new { total, completed, pending });
+});
+
+//app.MapPost("/api/ai/summary", async (SummaryRequest request, IConfiguration config, IHttpClientFactory httpClientFactory) =>
+//{
+//    var apiKey = config["OpenAI:ApiKey"];
+//    if (string.IsNullOrEmpty(apiKey))
+//        return Results.Problem("OpenAI API key is missing in configuration.");
+
+//    var taskDetails = string.Join("\n", request.Tasks.Select(t =>
+//        $"- {t.Title} ({t.Status}) - {(t.Completed ? "✅ Completed" : "⏳ Incomplete")}"));
+
+//    var messages = new List<ChatCompletionRequestMessage>
+//    {
+//        new ChatCompletionRequestMessage { Role = "system", Content = "You are a helpful assistant that summarizes tasks clearly and concisely." },
+//        new ChatCompletionRequestMessage { Role = "user", Content = $"Summarize the following tasks:\n{taskDetails}" }
+//    };
+
+//    var chatRequest = new ChatCompletionRequest
+//    {
+//        Model = "gpt-3.5-turbo",
+//        Messages = messages,
+//        Max_tokens = 200
+//    };
+
+//    var client = httpClientFactory.CreateClient();
+//    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+
+//    var response = await client.PostAsJsonAsync("https://api.openai.com/v1/chat/completions", chatRequest);
+
+//    if (!response.IsSuccessStatusCode)
+//    {
+//        var error = await response.Content.ReadAsStringAsync();
+//        return Results.Problem($"OpenAI API request failed: {error}");
+//    }
+
+//    var completionResponse = await response.Content.ReadFromJsonAsync<ChatCompletionResponse>();
+
+//    var summary = completionResponse?.Choices.FirstOrDefault()?.Message.Content ?? "No summary returned";
+
+//    return Results.Ok(new { summary });
 //});
 
 app.MapPost("/api/ai/summary", async (SummaryRequest request, IConfiguration config, IHttpClientFactory httpClientFactory) =>
 {
-    var apiKey = config["OpenAI:ApiKey"];
+    var apiKey = config["Gemini:ApiKey"];
     if (string.IsNullOrEmpty(apiKey))
-        return Results.Problem("OpenAI API key is missing in configuration.");
+        return Results.Problem("Gemini API key is missing.");
 
     var taskDetails = string.Join("\n", request.Tasks.Select(t =>
         $"- {t.Title} ({t.Status}) - {(t.Completed ? "✅ Completed" : "⏳ Incomplete")}"));
 
-    var messages = new List<ChatCompletionRequestMessage>
-    {
-        new ChatCompletionRequestMessage { Role = "system", Content = "You are a helpful assistant that summarizes tasks clearly and concisely." },
-        new ChatCompletionRequestMessage { Role = "user", Content = $"Summarize the following tasks:\n{taskDetails}" }
-    };
+    var prompt = $"Summarize the following tasks:\n{taskDetails}";
 
-    var chatRequest = new ChatCompletionRequest
+    var requestBody = new
     {
-        Model = "gpt-3.5-turbo",
-        Messages = messages,
-        Max_tokens = 200
+        contents = new[]
+        {
+            new {
+                parts = new[] { new { text = prompt } }
+            }
+        }
     };
 
     var client = httpClientFactory.CreateClient();
-    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", apiKey);
+    // ❌ Do not set Authorization header for API key
+    // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
 
-    var response = await client.PostAsJsonAsync("https://api.openai.com/v1/chat/completions", chatRequest);
+    // ✅ Pass API key as query parameter
+    var url = $"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key={apiKey}";
+
+    var response = await client.PostAsJsonAsync(url, requestBody);
 
     if (!response.IsSuccessStatusCode)
     {
         var error = await response.Content.ReadAsStringAsync();
-        return Results.Problem($"OpenAI API request failed: {error}");
+        return Results.Problem($"Gemini API request failed: {error}");
     }
 
-    var completionResponse = await response.Content.ReadFromJsonAsync<ChatCompletionResponse>();
+    var json = await response.Content.ReadFromJsonAsync<JsonElement>();
+    var fullText = json
+        .GetProperty("candidates")[0]
+        .GetProperty("content")
+        .GetProperty("parts")[0]
+        .GetProperty("text")
+        .GetString();
 
-    var summary = completionResponse?.Choices.FirstOrDefault()?.Message.Content ?? "No summary returned";
+    // Split the fullText into a heading and a description
+    string title = "AI Summary";
+    string summary = fullText;
 
-    return Results.Ok(new { summary });
+    if (!string.IsNullOrWhiteSpace(fullText))
+    {
+        var parts = fullText.Split(new[] { '\n' }, 2, StringSplitOptions.RemoveEmptyEntries);
+        if (parts.Length == 2)
+        {
+            title = parts[0].Trim();          // e.g., "Here's a summary of the tasks:"
+            summary = parts[1].Trim();    // The rest of the summary content
+        }
+    }
+
+    return Results.Ok(new { title, summary });
 });
+
+
 
 app.Run();
 

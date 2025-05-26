@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SummaryService } from '../../services/SummaryBoxService';
+import { SummaryBoxService } from '../../services/SummaryBoxService';
 import './SummaryBox.css';
 
 interface Props {
@@ -16,7 +16,7 @@ const SummaryBox: React.FC<Props> = () => {
     useEffect(() => {
         const fetchSummary = async () => {
             try {
-                const summary = await SummaryService.getTaskSummary();
+                const summary = await SummaryBoxService.getTaskSummary();
                 setTotal(summary.total);
                 setCompleted(summary.completed);
                 setPending(summary.pending);
