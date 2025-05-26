@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+## Ignore Visual Studio folders
+.vs/
+*.user
+*.suo
+
+## Ignore build output
+bin/
+obj/
+SmartTaskAssistant.Api/obj/
+SmartTaskAssistant.Api/bin/
+
+## Ignore logs and temp files
+*.log
+*.tmp
+
+## Ignore local settings
+*.vscode/
+*.dll
+*.pdb
+*.db
+SmartTaskAssistant.Api/obj/
+SmartTaskAssistant.Api/obj/Debug/net8.0/SmartTaskAssistant.Api.dll
+SmartTaskAssistant.Api/tasks.db

@@ -20,7 +20,7 @@ const TaskComponent: React.FC<TaskProps> = ({ task, onToggle, onDelete }) => {
         >
             <input
                 type="checkbox"
-                checked={task.completed}
+                checked={!!task.completed}
                 onChange={() => onToggle && onToggle()}
                 style={{ marginRight: "12px" }}
             />
