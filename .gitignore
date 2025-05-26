@@ -46,3 +46,5 @@ SmartTaskAssistant.Api/bin/
 SmartTaskAssistant.Api/obj/
 SmartTaskAssistant.Api/obj/Debug/net8.0/SmartTaskAssistant.Api.dll
 SmartTaskAssistant.Api/tasks.db
+SmartTaskAssistant.Api/tasks.db-shm
+SmartTaskAssistant.Api/tasks.db-wal
